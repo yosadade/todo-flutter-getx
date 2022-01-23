@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:todo/models/todocard_model.dart';
 import 'package:todo/theme.dart';
 
 class TodoCard extends StatelessWidget {
-  const TodoCard({Key? key}) : super(key: key);
+  final TodoCardModel todoCard;
+  // ignore: use_key_in_widget_constructors
+  const TodoCard(this.todoCard);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,7 @@ class TodoCard extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "name",
+            todoCard.title,
             style: primaryTextStyle.copyWith(
                 fontSize: 14,
                 fontWeight: light,
@@ -27,52 +30,54 @@ class TodoCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 GestureDetector(
+                    onTap: () {},
                     child: ClipRRect(
-                  child: Container(
-                    padding: const EdgeInsets.all(5),
-                    width: 70,
-                    decoration: BoxDecoration(
-                        color: backgroundColor1,
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Row(children: [
-                      Center(
-                        child: Image.asset('assets/icon_edit.png',
-                            width: 10, height: 10),
+                      child: Container(
+                        padding: const EdgeInsets.all(5),
+                        width: 70,
+                        decoration: BoxDecoration(
+                            color: backgroundColor1,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: Row(children: [
+                          Center(
+                            child: Image.asset('assets/icon_edit.png',
+                                width: 10, height: 10),
+                          ),
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          Text("Edit",
+                              style: primaryTextStyle.copyWith(
+                                  fontSize: 10, color: textColor4))
+                        ]),
                       ),
-                      const SizedBox(
-                        width: 4,
-                      ),
-                      Text("Edit",
-                          style: primaryTextStyle.copyWith(
-                              fontSize: 10, color: textColor4))
-                    ]),
-                  ),
-                )),
+                    )),
                 const SizedBox(
                   width: 8,
                 ),
                 GestureDetector(
+                    onTap: () {},
                     child: ClipRRect(
-                  child: Container(
-                    padding: const EdgeInsets.all(5),
-                    width: 70,
-                    decoration: BoxDecoration(
-                        color: backgroundColor1,
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Row(children: [
-                      Center(
-                        child: Image.asset('assets/icon_trash.png',
-                            width: 10, height: 10),
+                      child: Container(
+                        padding: const EdgeInsets.all(5),
+                        width: 70,
+                        decoration: BoxDecoration(
+                            color: backgroundColor1,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: Row(children: [
+                          Center(
+                            child: Image.asset('assets/icon_trash.png',
+                                width: 10, height: 10),
+                          ),
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          Text("Remove",
+                              style: primaryTextStyle.copyWith(
+                                  fontSize: 10, color: textColor3))
+                        ]),
                       ),
-                      const SizedBox(
-                        width: 4,
-                      ),
-                      Text("Remove",
-                          style: primaryTextStyle.copyWith(
-                              fontSize: 10, color: textColor3))
-                    ]),
-                  ),
-                )),
+                    )),
               ],
             ),
           ])
